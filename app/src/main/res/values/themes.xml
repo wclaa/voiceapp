@@ -1,0 +1,51 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- 深紫磨砂玻璃主题 -->
+    <style name="Theme.VoiceAccountBook" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- 品牌色 -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/income</item>
+        <item name="colorSecondaryVariant">@color/income</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- 背景色 -->
+        <item name="android:colorBackground">@color/bg_gradient_bottom</item>
+        <item name="colorOnBackground">@color/textPrimary</item>
+        <!-- 表面色 -->
+        <item name="colorSurface">@color/glass_bg</item>
+        <item name="colorOnSurface">@color/textPrimary</item>
+        <!-- 错误色 -->
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">@color/white</item>
+        <!-- 沉浸式状态栏 -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/bg_gradient_top</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">@color/bg_gradient_bottom</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- 底部导航文字样式（12sp，紫色） -->
+    <style name="BottomNavText" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- 底部导航选中指示器（无背景，仅图标文字变色） -->
+    <style name="BottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <!-- 磨砂玻璃卡片样式 -->
+    <style name="GlassCard">
+        <item name="android:background">@drawable/bg_glass_card</item>
+    </style>
+
+    <!-- 磨砂玻璃弹窗主题（全透明背景，由自定义Container控制样式） -->
+    <style name="GlassDialog" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:textColorPrimary">@color/textPrimary</item>
+        <item name="android:textColorSecondary">@color/textSecondary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+    </style>
+</resources>

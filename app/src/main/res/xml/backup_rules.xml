@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 包含需要备份的文件和目录 -->
+    <include domain="sharedpref" path="" />
+    <include domain="database" path="" />
+    <include domain="file" path="" />
+    <!-- 排除不需要备份的文件和目录 -->
+    <exclude domain="file" path="cache/" />
+</full-backup-content>

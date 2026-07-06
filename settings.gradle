@@ -1,0 +1,29 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        // 阿里云镜像源
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/central' // 修改：使用阿里云的central镜像
+        }
+        // jitpack镜像源
+        maven {
+            url 'https://jitpack.io'
+        }
+        google()
+        mavenCentral() // 修改：确保mavenCentral()存在，用于获取Vosk依赖
+    }
+}
+
+rootProject.name = "VoiceAccountBook"
+include ':app'

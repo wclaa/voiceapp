@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/page_horizontal_margin"
+        android:paddingEnd="@dimen/page_horizontal_margin">
+
+        <!-- 顶部安全区 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
+
+        <!-- ===== 模块1：顶部数据概览卡片 ===== -->
+        <!-- 月份切换导航栏 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <!-- 上一月 -->
+            <TextView
+                android:id="@+id/iv_month_prev"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:text="‹"
+                android:textSize="22sp"
+                android:textColor="@color/textSecondary"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <!-- 月份文字（点击回到本月） -->
+            <TextView
+                android:id="@+id/tv_month_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="6月"
+                android:textSize="@dimen/text_title"
+                android:textColor="@color/textSecondary"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <!-- 下一月 -->
+            <TextView
+                android:id="@+id/iv_month_next"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:text="›"
+                android:textSize="22sp"
+                android:textColor="@color/textSecondary"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <!-- 数据概览磨砂玻璃卡片 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_statistics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_glass_card"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            android:outlineProvider="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/card_padding_h"
+                android:paddingEnd="@dimen/card_padding_h"
+                android:paddingTop="@dimen/card_padding_v"
+                android:paddingBottom="@dimen/card_padding_v">
+
+                <!-- 左侧：收支数据（60%宽度） -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <!-- 本月收入 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="本月收入"
+                            android:textSize="@dimen/text_tag"
+                            android:textColor="@color/textTertiary" />
+
+                        <TextView
+                            android:id="@+id/tv_income"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="¥0.00"
+                            android:textSize="@dimen/text_amount_row"
+                            android:textStyle="bold"
+                            android:textColor="@color/income"
+                            android:fontFamily="sans-serif-medium" />
+                    </LinearLayout>
+
+                    <!-- 本月支出 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="本月支出"
+                            android:textSize="@dimen/text_tag"
+                            android:textColor="@color/textTertiary" />
+
+                        <TextView
+                            android:id="@+id/tv_expense"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="¥0.00"
+                            android:textSize="@dimen/text_amount_row"
+                            android:textStyle="bold"
+                            android:textColor="@color/expense"
+                            android:fontFamily="sans-serif-medium" />
+                    </LinearLayout>
+
+                    <!-- 本月结余 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="本月结余"
+                            android:textSize="@dimen/text_tag"
+                            android:textColor="@color/textTertiary" />
+
+                        <TextView
+                            android:id="@+id/tv_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="¥0.00"
+                            android:textSize="@dimen/text_amount_row"
+                            android:textStyle="bold"
+                            android:textColor="@color/textPrimary"
+                            android:fontFamily="sans-serif-medium" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 右侧：环形预算进度（40%宽度） -->
+                <FrameLayout
+                    android:id="@+id/fl_ring_container"
+                    android:layout_width="0dp"
+                    android:layout_height="130dp"
+                    android:layout_weight="4"
+                    android:layout_marginStart="12dp">
+
+                    <View
+                        android:id="@+id/v_circle_chart"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ===== 模块2：最近记账区域 ===== -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/section_spacing"
+            android:layout_marginBottom="12dp">
+
+            <!-- 紫色装饰条 -->
+            <View
+                android:layout_width="@dimen/accent_bar_width"
+                android:layout_height="@dimen/accent_bar_height"
+                android:background="@color/accent_bar"
+                android:layout_marginEnd="10dp" />
+
+            <!-- 区域标题 -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="最近记账"
+                android:textSize="@dimen/text_title"
+                android:textColor="@color/textPrimary"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 最近账单磨砂玻璃卡片 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_recent_bills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_glass_card"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            android:outlineProvider="none">
+
+            <LinearLayout
+                android:id="@+id/ll_recent_bills_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <!-- 账单条目1 -->
+                <LinearLayout
+                    android:id="@+id/ll_bill_item_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/bill_item_height"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/iv_bill_icon_1"
+                        android:layout_width="@dimen/bill_icon_size"
+                        android:layout_height="@dimen/bill_icon_size"
+                        android:layout_marginEnd="12dp"
+                        android:src="@android:drawable/ic_menu_gallery" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_bill_category_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="@dimen/text_amount_list"
+                            android:textColor="@color/textSecondary" />
+
+                        <TextView
+                            android:id="@+id/tv_bill_note_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="@dimen/text_nav"
+                            android:textColor="@color/textTertiary"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_bill_amount_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/text_amount_list"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/v_divider_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginStart="@dimen/bill_divider_indent"
+                    android:visibility="gone" />
+
+                <!-- 账单条目2 -->
+                <LinearLayout
+                    android:id="@+id/ll_bill_item_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/bill_item_height"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/iv_bill_icon_2"
+                        android:layout_width="@dimen/bill_icon_size"
+                        android:layout_height="@dimen/bill_icon_size"
+                        android:layout_marginEnd="12dp"
+                        android:src="@android:drawable/ic_menu_gallery" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_bill_category_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="@dimen/text_amount_list"
+                            android:textColor="@color/textSecondary" />
+
+                        <TextView
+                            android:id="@+id/tv_bill_note_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="@dimen/text_nav"
+                            android:textColor="@color/textTertiary"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_bill_amount_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/text_amount_list"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/v_divider_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/divider"
+                    android:layout_marginStart="@dimen/bill_divider_indent"
+                    android:visibility="gone" />
+
+                <!-- 账单条目3 -->
+                <LinearLayout
+                    android:id="@+id/ll_bill_item_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/bill_item_height"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    android:background="@android:color/transparent">
+
+                    <ImageView
+                        android:id="@+id/iv_bill_icon_3"
+                        android:layout_width="@dimen/bill_icon_size"
+                        android:layout_height="@dimen/bill_icon_size"
+                        android:layout_marginEnd="12dp"
+                        android:src="@android:drawable/ic_menu_gallery" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_bill_category_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="@dimen/text_amount_list"
+                            android:textColor="@color/textSecondary" />
+
+                        <TextView
+                            android:id="@+id/tv_bill_note_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="@dimen/text_nav"
+                            android:textColor="@color/textTertiary"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_bill_amount_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/text_amount_list"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+
+                <!-- 无账单占位 -->
+                <TextView
+                    android:id="@+id/tv_no_bills_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/bill_item_height"
+                    android:text="今日还未记账哦"
+                    android:textSize="@dimen/text_label"
+                    android:textColor="@color/textTertiary"
+                    android:gravity="center"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 查看全部 -->
+        <TextView
+            android:id="@+id/tv_view_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="查看全部 >"
+            android:textSize="@dimen/text_tag"
+            android:textColor="@color/textTertiary"
+            android:gravity="end"
+            android:paddingTop="10dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- ===== 模块3：今日预算提示条 ===== -->
+
+        <LinearLayout
+            android:id="@+id/ll_budget_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_budget_tip"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:paddingStart="@dimen/budget_tip_padding_h"
+            android:paddingEnd="@dimen/budget_tip_padding_h"
+            android:paddingTop="@dimen/budget_tip_padding_v"
+            android:paddingBottom="@dimen/budget_tip_padding_v">
+
+            <TextView
+                android:id="@+id/tv_budget_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="今日还可消费"
+                android:textSize="@dimen/text_label"
+                android:textColor="@color/budget_tip_text" />
+
+            <TextView
+                android:id="@+id/tv_today_remaining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥ --"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/budget_tip_amount"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+
+        <!-- ===== 模块4：核心操作按钮区 ===== -->
+
+        <LinearLayout
+            android:id="@+id/ll_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- 语音记账（主按钮：76dp，主紫渐变，无文字） -->
+            <ImageView
+                android:id="@+id/fab_record"
+                android:layout_width="@dimen/voice_btn_size"
+                android:layout_height="@dimen/voice_btn_size"
+                android:src="@drawable/ic_mic"
+                android:background="@drawable/bg_voice_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="centerInside"
+                android:padding="18dp" />
+
+            <!-- 手动记账（次按钮：64dp，磨砂玻璃，无文字） -->
+            <ImageView
+                android:id="@+id/fab_manual"
+                android:layout_width="@dimen/manual_btn_size"
+                android:layout_height="@dimen/manual_btn_size"
+                android:src="@drawable/ic_edit_note"
+                android:background="@drawable/bg_manual_btn"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="centerInside"
+                android:padding="15dp"
+                android:layout_marginStart="@dimen/btn_spacing" />
+        </LinearLayout>
+
+        <!-- ===== 语音识别文本展示区 ===== -->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_recognition"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_glass_card"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            android:outlineProvider="none"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_recognition"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="正在识别..."
+                android:textSize="@dimen/text_title"
+                android:textColor="@color/textPrimary"
+                android:gravity="center"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- 加载进度 -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="正在加载模型..."
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/text_tag"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="重试"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:layout_marginTop="8dp" />
+
+        <!-- 底部间距 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
+    </LinearLayout>
+</ScrollView>

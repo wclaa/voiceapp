@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="12dp"
+    android:background="@color/surface">
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="2023年10月1日 星期日"
+        android:textSize="14sp"
+        android:textColor="@color/textSecondary" />
+
+    <TextView
+        android:id="@+id/tv_day_expense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¥100.00"
+        android:textSize="14sp"
+        android:textColor="@color/expense"
+        android:textStyle="bold" />
+
+</LinearLayout>

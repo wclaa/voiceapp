@@ -1,0 +1,48 @@
+# Gradle files
+.gradle/
+build/
+
+# Local configuration files (sdk path, etc)
+local.properties
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build outputs
+app/build/
+app/release/
+
+# Logs
+logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Visual Studio
+.vs/
+
+# Project docs (not part of source code)
+课程作业要求.docx
+项目书.md
+generate_docx.py

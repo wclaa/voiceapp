@@ -1,0 +1,67 @@
+<resources>
+    <!-- ===== 深紫黑磨砂玻璃主题配色体系 ===== -->
+
+    <!-- 页面背景渐变 -->
+    <color name="bg_gradient_top">#1B1130</color>
+    <color name="bg_gradient_bottom">#0D081C</color>
+
+    <!-- 主色：柔亮薰衣草紫 -->
+    <color name="colorPrimary">#9F7AFF</color>
+    <color name="colorPrimaryDark">#8B6AEE</color>
+    <color name="colorPrimaryLight">#B49FFF</color>
+    <color name="colorPrimaryGlow">#209F7AFF</color>
+
+    <!-- 功能色：收入/支出 -->
+    <color name="income">#34D399</color>
+    <color name="expense">#F87171</color>
+
+    <!-- 文字三级色阶 -->
+    <color name="textPrimary">#FFFFFF</color>
+    <color name="textSecondary">#C8BDE6</color>
+    <color name="textTertiary">#8E82B5</color>
+
+    <!-- 磨砂玻璃卡片 -->
+    <color name="glass_bg">#662A1C46</color>
+    <color name="glass_border">#14FFFFFF</color>
+    <color name="glass_shadow">#269F7AFF</color>
+
+    <!-- 半透分割线 -->
+    <color name="divider">#0FFFFFFF</color>
+
+    <!-- 底部导航栏 -->
+    <color name="nav_bg">#CC1A1430</color>
+    <color name="nav_border">#14FFFFFF</color>
+    <color name="nav_selected">#9F7AFF</color>
+    <color name="nav_unselected">#8E82B5</color>
+
+    <!-- 预算提示条 -->
+    <color name="budget_tip_bg">#269F7AFF</color>
+    <color name="budget_tip_border">#339F7AFF</color>
+    <color name="budget_tip_text">#C8BDE6</color>
+    <color name="budget_tip_amount">#9F7AFF</color>
+
+    <!-- 环形图 -->
+    <color name="ring_bg">#332A1C46</color>
+    <color name="ring_progress_start">#F87171</color>
+    <color name="ring_progress_end">#EF4444</color>
+    <color name="ring_glow">#30F87171</color>
+
+    <!-- 装饰条 -->
+    <color name="accent_bar">#9F7AFF</color>
+
+    <!-- 白色 -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="error">#F87171</color>
+
+    <!-- ===== 保留原有兼容色 ===== -->
+    <color name="purple_500">#9F7AFF</color>
+    <color name="purple_700">#7C3AED</color>
+    <color name="teal_200">#34D399</color>
+    <color name="teal_700">#10B981</color>
+
+    <!-- 旧版页面颜色别名（向后兼容） -->
+    <color name="background">#1B1130</color>
+    <color name="glass_background">#662A1C46</color>
+    <color name="surface">#662A1C46</color>
+</resources>
